@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>International Store</title>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/shop-item.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/shop-item.css" asp-append-version="true" />
+    </environment>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Store Name</p>
+                <div class="list-group" id="Stores">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h3>Articles</h3>
+                <br />
+                <button class="btn btn-success" onclick="add_article()"><i class="glyphicon glyphicon-plus"></i> Add Article</button>
+                <br />
+                <br />
+                <input type="hidden" value="" name="DataId" />
+                <table id="tblResults" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Total in Shelf</th>
+                            <th>Total in Vault</th>
+                            <th style="width:125px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Total in Shelf</th>
+                            <th>Total in Vault</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!-- Bootstrap modal -->
+                <div class="modal fade" id="article_modal_form" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title">Article Form</h3>
+                            </div>
+                            <div class="modal-body form">
+                                <form action="#" id="form_article" class="form-horizontal">
+                                    <input type="hidden" value="" name="Id" />
+                                    <input type="hidden" value="" name="StoreId" />
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Name</label>
+                                            <div class="col-md-9">
+                                                <input name="Name" placeholder="Name" class="form-control" type="text">
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Description</label>
+                                            <div class="col-md-9">
+                                                <textarea name="Description" placeholder="Description" class="form-control"></textarea>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Price</label>
+                                            <div class="col-md-9">
+                                                <textarea name="Price" placeholder="Price" class="form-control"></textarea>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Total In Shelf</label>
+                                            <div class="col-md-9">
+                                                <textarea name="TotalInShelf" placeholder="Total in Shelf" class="form-control"></textarea>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Total in Vault</label>
+                                            <div class="col-md-9">
+                                                <textarea name="TotalInVault" placeholder="Total in Vault" class="form-control"></textarea>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Store</label>
+                                            <div class="col-md-9">
+                                                <textarea name="Store" placeholder="Store" class="form-control" readonly="readonly"></textarea>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btnSaveArticle" onclick="save_article()" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div>
+
+
+                <!-- Bootstrap modal -->
+                <div class="modal fade" id="store_modal_form" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title">Store Form</h3>
+                            </div>
+                            <div class="modal-body form">
+                                <form action="#" id="form_store" class="form-horizontal">
+                                    <input type="hidden" value="" name="Id" />
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Name</label>
+                                            <div class="col-md-9">
+                                                <input name="name" placeholder="Name" class="form-control" type="text">
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Address</label>
+                                            <div class="col-md-9">
+                                                <textarea name="address" placeholder="Address" class="form-control"></textarea>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btnSaveStore" onclick="save_store()" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <div class="container">
+        @RenderBody();
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/jqArticles.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/jqArticles.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

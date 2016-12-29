@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B01B4B39-3746-4BAE-AD2C-2BBD7AD20528}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C0865CF2-DAA0-462A-9031-EEE38742D218}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NetGAP", "src\NetGAP\NetGAP.xproj", "{114CA53A-C94F-47ED-98CF-31D428BDE928}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NetGAP.Application", "src\NetGAP.Application\NetGAP.Application.xproj", "{6A475343-DB3D-4AD9-B18D-0F286D5D6DB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114CA53A-C94F-47ED-98CF-31D428BDE928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114CA53A-C94F-47ED-98CF-31D428BDE928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114CA53A-C94F-47ED-98CF-31D428BDE928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114CA53A-C94F-47ED-98CF-31D428BDE928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A475343-DB3D-4AD9-B18D-0F286D5D6DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A475343-DB3D-4AD9-B18D-0F286D5D6DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A475343-DB3D-4AD9-B18D-0F286D5D6DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A475343-DB3D-4AD9-B18D-0F286D5D6DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{114CA53A-C94F-47ED-98CF-31D428BDE928} = {B01B4B39-3746-4BAE-AD2C-2BBD7AD20528}
+		{6A475343-DB3D-4AD9-B18D-0F286D5D6DB5} = {B01B4B39-3746-4BAE-AD2C-2BBD7AD20528}
+	EndGlobalSection
+EndGlobal
